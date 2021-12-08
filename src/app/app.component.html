@@ -1,0 +1,27 @@
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand" >Gestion de mes Contacts</span>
+    </div>
+  </nav>
+  <div *ngFor="let contact of contacts;">
+    <div class="mb-3" (click)="getInfoContact(contact.id)">
+      <label  class="form-label" >{{contact.name}}</label>
+    </div>
+  </div>
+  <div>
+    <app-form-contact (newContactEvent)="newContact($event)"> </app-form-contact>
+  </div>
+</header>
+
+<main>
+  <div >
+    <input type="text"
+           name="nameModifier"
+           class="form-control"
+           value="{{newInfo?.name}}"
+    >
+  </div>
+
+</main>

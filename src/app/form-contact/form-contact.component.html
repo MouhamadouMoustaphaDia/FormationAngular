@@ -1,0 +1,57 @@
+<form (ngSubmit)="addContact(registerForm)" #registerForm="ngForm" >
+  <div class="mb-3">
+    <label  class="form-label">Nom Complet</label>
+    <input type="text"
+           name="name"
+           class="form-control"
+           placeholder="name"
+           [(ngModel)]="contact.name"
+           required
+           #varName="ngModel"
+           [ngClass]="{'is-invalid': varName.touched && !varName.valid}"
+           >
+    <div class="invalid-feedback">
+      <span *ngIf="varName.errors">Entrer votre nom Complet</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Pseudo</label>
+    <input type="text"
+           name="pseudo"
+           class="form-control"
+           placeholder="Peseudo"
+           required
+           [(ngModel)]="contact.pseudo"
+           #varPseudo="ngModel"
+           [ngClass]="{'is-invalid': varPseudo.touched && !varPseudo.valid}"
+           >
+    <div class="invalid-feedback">
+      <span *ngIf="varPseudo.errors">Entrer votre Pseudo</span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label" >Email </label>
+    <input type="email"
+           name="email"
+           class="form-control"
+           id="exampleFormControlInput1"
+           placeholder="name@example.com"
+           [(ngModel)]="contact.email"
+           required
+           email
+           #varEmail="ngModel"
+           [ngClass]="{'is-invalid': varEmail.touched && !varEmail.valid}">
+    <div class="invalid-feedback">
+      <span *ngIf="varEmail.errors">
+        L'Email n'est pas valide
+      </span>
+    </div>
+
+  </div>
+  <div class="mb-3">
+    <button  class="btn btn-success">Ajouter</button>
+  </div>
+</form>
+
+
